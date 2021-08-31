@@ -3,7 +3,7 @@ import { Container, Box, Input, Button, Text, FormControl, FormLabel, FormHelper
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import Link from 'next/Link'
-import {firebaseClient,persistenceMode} from './../../config/firebase'
+import {firebaseClient,persistenceMode} from './../../config/firebase/client'
 
 
 
@@ -14,7 +14,7 @@ const validationSchema = yup.object().shape({
 })  
 export const Login=()=> {
 
-
+ 
   const {values,errors,touched,handleChange,handleSubmit,handleBlur,isSubmitting} = useFormik({
     onSubmit: async (values,form) => {
       

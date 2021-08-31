@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button"
-import {firebaseClient} from './../../config/firebase'
+import {firebaseClient} from './../../config/firebase/client'
 export const Agenda=() => {
     const logout=()=>firebaseClient.auth().signOut()
     
@@ -9,4 +9,4 @@ export const Agenda=() => {
      </div>
     )
   }
-   
+    

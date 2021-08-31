@@ -2,7 +2,7 @@ import { Logo } from './../components/index'
 import { Container, Box, Input, Button, Text, FormControl, FormLabel, FormHelperText,InputGroup,InputLeftAddon } from '@chakra-ui/react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import {firebaseClient} from './../config/firebase'
+import {firebaseClient} from './../config/firebase/client'
 import Link from 'next/Link'
 
 
@@ -11,7 +11,7 @@ const validationSchema = yup.object().shape({
   email: yup.string().email('E-mail inválido').required('Preenhcimento obrigatório'),
   password: yup.string().required("Preenchimento Obrigatório"),
   username: yup.string().required("Preenchimento Obrigatório")
- 
+  
 })
 export default function Home() {
 
