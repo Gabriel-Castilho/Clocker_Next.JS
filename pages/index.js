@@ -4,6 +4,8 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import firebase from './../config/firebase'
 import Link from 'next/Link'
+import app,{persistenceMode} from './../config/firebase'
+import { useEffect } from 'react'
 
 
 
@@ -16,6 +18,8 @@ export default function Home() {
 
   const {values,errors,touched,handleChange,handleSubmit,handleBlur,isSubmitting} = useFormik({
     onSubmit: async (values,form) => {
+      
+  firebase.auth().setPersistence(persistenceMode)
       try{
        const user = await firebase.auth().signInWithEmailAndPassword(values.email,values.password)
        console.log(user)
@@ -31,6 +35,7 @@ export default function Home() {
     }
 
   })
+
 
   return (
     <Container p={4} centerContent>
