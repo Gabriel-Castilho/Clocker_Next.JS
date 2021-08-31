@@ -3,7 +3,7 @@ import {firebaseClient} from './../../config/firebase'
 export const Agenda=() => {
     const logout=()=>firebaseClient.auth().signOut()
     
-    return (
+    return ( 
      <div>
        <Button onClick={logout}>Sair</Button>
      </div>

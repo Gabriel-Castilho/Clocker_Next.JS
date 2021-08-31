@@ -5,9 +5,9 @@ import {firebaseClient} from './../config/firebase'
 export default function Home(){
   const [auth,setAuth] = useState({
     loading:true,
-    user:false
+    user:false,
   })
-  
+   
 
   useEffect(()=>{
     firebaseClient.auth().onAuthStateChanged(user=>{

@@ -11,7 +11,7 @@ import {firebaseClient,persistenceMode} from './../../config/firebase'
 const validationSchema = yup.object().shape({
   email: yup.string().email('E-mail inválido').required('Preenhcimento obrigatório'),
   password: yup.string().required("Preenchimento Obrigatório"),
-})
+})  
 export const Login=()=> {
 
 
