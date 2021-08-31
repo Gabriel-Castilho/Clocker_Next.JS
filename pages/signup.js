@@ -2,7 +2,7 @@ import { Logo } from './../components/index'
 import { Container, Box, Input, Button, Text, FormControl, FormLabel, FormHelperText,InputGroup,InputLeftAddon } from '@chakra-ui/react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import firebase from './../config/firebase'
+import {firebaseClient} from './../config/firebase'
 import Link from 'next/Link'
 
 
@@ -19,7 +19,7 @@ export default function Home() {
   const {values,errors,touched,handleChange,handleSubmit,handleBlur,isSubmitting} = useFormik({
     onSubmit: async (values,form) => {
       try{
-       const user = await firebase.auth().createUserWithEmailAndPassword(values.email,values.password)
+       const user = await firebaseClient.auth().createUserWithEmailAndPassword(values.email,values.password)
        console.log(user)
       }catch(error){
         console.log(error)

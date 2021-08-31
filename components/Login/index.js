@@ -3,8 +3,7 @@ import { Container, Box, Input, Button, Text, FormControl, FormLabel, FormHelper
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import Link from 'next/Link'
-import firebase from './../../config/firebase'
-import {persistenceMode} from './../../config/firebase'
+import {firebaseClient,persistenceMode} from './../../config/firebase'
 
 
 
@@ -19,9 +18,9 @@ export const Login=()=> {
   const {values,errors,touched,handleChange,handleSubmit,handleBlur,isSubmitting} = useFormik({
     onSubmit: async (values,form) => {
       
-  firebase.auth().setPersistence(persistenceMode)
+  firebaseClient.auth().setPersistence(persistenceMode)
       try{
-       const user = await firebase.auth().signInWithEmailAndPassword(values.email,values.password)
+       const user = await firebaseClient.auth().signInWithEmailAndPassword(values.email,values.password)
        console.log(user)
       }catch(error){
         console.log(error)
